@@ -9,6 +9,11 @@
    // Add a marker for the user's location
    var marker = L.marker([0, 0]).addTo(map);
 
+//    set AR LOC
+   function setEntityLocation(latitude, longitude) {
+    const entity = document.querySelector('[gps-new-entity-place]');
+    entity.setAttribute('gps-new-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
+  }
 
   // Function to update the marker location based on user's geolocation 13 default view ani 
   function updateLocation(position) {
@@ -24,6 +29,8 @@
       var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       document.getElementById('timeZone').innerText = ' ' + timeZone + '(Timezone)';
     
+    //   USER AR LOC
+      setEntityLocation(latitude, longitude);
     
   }
 
