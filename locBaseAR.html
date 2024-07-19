@@ -114,22 +114,23 @@
           <div class="col-lg-3 col-md-4  w-5 col-12 card-wrapper"
           style=" position: absolute; z-index: 4; width: auto; top: 85%; right: 2%; background-color: transparent;">
           <div class="card mt-4 bg-transparent" id="cards" style="border: none;">
-            <div id="compass"><img src="../img/compass.png" alt="">
+            <div id="compass"><img src="img/compass.png" alt="">
 
-              <div class="arrow north"><img src="../img/hand.png" alt="↓"></div>
+              <div class="arrow north"><img src="img/hand.png" alt="↓"></div>
 
-              <p  class="mb-4 "  style="font-size: smaller; color: blue;position: fixed; right: 2%; top: 20dvh;" id="currentLocation">asdasd </p>
-              <p class="mb-4" style="font-size: smaller; color: slateblue; position: fixed; right: 2%; top: 24dvh;" id="timeZone">saasd</p> <!-- Display time zone ID -->
-  
+             
             </div>
           </div>
+          <p  class="mb-4 "  style="font-size: smaller; color: blue;position: fixed; right: 2%; top: 20dvh;" id="currentLocation">asdasd </p>
+          <p class="mb-4" style="font-size: smaller; color: slateblue; position: fixed; right: 2%; top: 24dvh;" id="timeZone">saasd</p> <!-- Display time zone ID -->
+
         </div>
     
   
   <!-- AR LOCbase    -->
 <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-    <a-entity  gps-new-entity-place="latitude: 7.9819795; longitude: 125.8917352" scale="10 10 10" gltf-model="url(3d/Bee.glb)"></a-entity>
+    <a-entity  gps-new-entity-place="latitude: 7.9819795; longitude: 125.8917352" scale="10 10 10" gltf-model="url(3d/pumpking_.glb)"></a-entity>
   </a-scene>
   
    
