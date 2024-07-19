@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Group 5: GPS and Compass</title>
+
+     <!-- Linking CSS File -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="shortcut icon" href="img/IMG_20240427_174545-removebg-preview.png" type="image/x-icon">
+
+
+  <!-- Fontawesome link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!-- Bootstrap link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/styles.css">
+<!-- <link rel="stylesheet" href="css/face.css"> -->
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Leaflet Control Geocoder CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <!-- Leaflet Control Geocoder JavaScript -->
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+  <script src="https://unpkg.com/leaflet-compass/dist/leaflet-compass.min.js"></script>
+
+<style>
+ 
+
+      #map {
+      height: 150px;
+      width: 150px;
+      z-index: 1;
+    top: 20dvh;
+      border-radius: 15px;
+    }
+    #map > div.leaflet-control-container > div.leaflet-bottom.leaflet-right > div{
+        border: solid red 1px !important;
+        display: none;
+    }
+</style>
+<script>
+  function setEntityLocation(latitude, longitude) {
+    const entity = document.querySelector('[gps-new-entity-place]');
+    entity.setAttribute('gps-new-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
+  }
+
+  function getCurrentLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        setEntityLocation(latitude, longitude);
+      }, (error) => {
+        console.error('Error getting location', error);
+      });
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  }
+
+  window.onload = () => {
+    getCurrentLocation();
+  };
+</script>
+
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
+  <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
+  </head>
+  <body style="margin: 0;  overflow: hidden; background-color: gray;  ">
+
+  <!-- Header & Navbar fixed-top-->
+  <header class="bg-transparent " >
+    <nav class="container-xxl navbar navbar-expand-lg py-3 bg-transparent navbar-transparent">
+      <div class="container-fluid">
+
+        <a class="navbar-brand fw-bold fs-3" style="color: wheat;" href="#"> <img class="logo"
+            src="img/IMG_20240427_174545-removebg-preview.png" alt="">Augmented Reality with GPS & Compass</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="locBaseAR.html">Augmented Reality</a>
+            </li>
+          
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="index.html#developers">Developers</a>
+            </li>
+
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div id="map" ></div>
+
+  
+          
+
+         
+
+  
+          <div class="col-lg-3 col-md-4  w-5 col-12 card-wrapper"
+          style=" position: absolute; z-index: 4; width: auto; top: 85%; right: 2%; background-color: transparent;">
+          <div class="card mt-4 bg-transparent" id="cards" style="border: none;">
+            <div id="compass"><img src="../img/compass.png" alt="">
+
+              <div class="arrow north"><img src="../img/hand.png" alt="↓"></div>
+
+              <p  class="mb-4 "  style="font-size: smaller; color: blue;position: fixed; right: 2%; top: 20dvh;" id="currentLocation">asdasd </p>
+              <p class="mb-4" style="font-size: smaller; color: slateblue; position: fixed; right: 2%; top: 24dvh;" id="timeZone">saasd</p> <!-- Display time zone ID -->
+  
+            </div>
+          </div>
+        </div>
+    
+  
+  <!-- AR LOCbase    -->
+<a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
+    <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
+    <a-entity  gps-new-entity-place="latitude: 7.9819795; longitude: 125.8917352" scale="10 10 10" gltf-model="url(3d/Bee.glb)"></a-entity>
+  </a-scene>
+  
+   
+
+
+    <script src="js/compass.js">  </script>
+    <script src="js/gps.js"></script>
+  
+  </body>
+</html>
