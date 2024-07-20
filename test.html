@@ -20,12 +20,22 @@
         const offsetLatitude = latitude + 0.0005; // Move north
         const offsetLongitude = longitude + 0.0005; // Move east
 
+         // Display current location coordinates in the h2 element
+      document.getElementById('currentLocation').innerText = ' ' + latitude + ', ' + longitude;
+      
+     
+     
+
         entity.setAttribute('gps-new-entity-place', `latitude: ${offsetLatitude}; longitude: ${offsetLongitude}`);
       });
     };
+
+
   </script>
 </head>
 <body>
+    <p  class="mb-4 "  style="font-size: smaller; color: blue;position: fixed; right: 2%; top: 20dvh;" id="currentLocation">asdasd </p>
+
   <!-- AR LOCbase -->
   <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
