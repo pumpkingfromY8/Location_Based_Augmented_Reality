@@ -17,8 +17,10 @@
         alert(`Got first GPS position: lon ${longitude} lat ${latitude}`);
 
         // Adjust latitude and longitude to position the entity at a distance
-        const offsetLatitude = latitude + 0.0005; // Move north
-        const offsetLongitude = longitude + 0.0005; // Move east
+        // const offsetLatitude = latitude + 0.0005; // Move north
+        // const offsetLongitude = longitude + 0.0005; // Move east
+        const offsetLatitude = latitude ; // Move north
+        const offsetLongitude = longitude ; // Move east
 
          // Display current location coordinates in the h2 element
       document.getElementById('currentLocation').innerText = ' ' + latitude + ', ' + longitude;
