@@ -16,7 +16,11 @@
 
         alert(`Got first GPS position: lon ${longitude} lat ${latitude}`);
 
-        entity.setAttribute('gps-new-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
+        // Adjust latitude and longitude to position the entity at a distance
+        const offsetLatitude = latitude + 0.0005; // Move north
+        const offsetLongitude = longitude + 0.0005; // Move east
+
+        entity.setAttribute('gps-new-entity-place', `latitude: ${offsetLatitude}; longitude: ${offsetLongitude}`);
       });
     };
   </script>
@@ -25,7 +29,7 @@
   <!-- AR LOCbase -->
   <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-    <a-entity gps-new-entity-place="latitude: 7.9819795; longitude: 125.8917352" scale="0.5 0.5 0.5" gltf-model="url(3d/Bee.glb)"></a-entity>
+    <a-entity scale="0.5 0.5 0.5" gltf-model="url(3d/Bee.glb)"></a-entity>
   </a-scene>
 </body>
 </html>
