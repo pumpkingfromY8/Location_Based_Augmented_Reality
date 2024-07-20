@@ -36,17 +36,12 @@
   </script>
 </head>
 <body>
-    <p  class="mb-4 "  style="z-index: 9; font-size: smaller; color: blue;position: fixed; right: 2%; top: 20dvh;" id="currentLocation">asdasd </p>
-
+   <p  class="mb-4 "  style="z-index: 9; font-size: smaller; color: blue;position: fixed; right: 2%; top: 20dvh;" id="currentLocation">Getting Your fck Location.....</p>
 
   <!-- AR LOCbase -->
   <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-    <a-entity gps-new-entity-place="latitude: 7.9819795; longitude: 125.8917352" scale="10 10 10" material="shader: flat" src="#my-video"></a-entity>
-    <a-assets>
-      <video id="my-video" autoplay loop="true" src="Vid.mp4" crossorigin="anonymous"></video>
-    </a-assets>
-  </a-scene>
+    <a-entity scale="0.5 0.5 0.5" gltf-model="url(3d/Bee.glb)"></a-entity>
   </a-scene>
 </body>
 </html>
